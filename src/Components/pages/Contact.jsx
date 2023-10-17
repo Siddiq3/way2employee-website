@@ -6,7 +6,8 @@ export const Contact = () => {
         borderRadius: 10
     }} className='class10'>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3251781230941397"
+     crossorigin="anonymous"></script>
 
         <div style={{ margin: 55, padding: 10, marginTop: 60, borderRadius: 10, }}>
 
