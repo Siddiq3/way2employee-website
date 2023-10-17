@@ -12,14 +12,10 @@ export const Services = () => {
             <div style={{ margin: 55, padding: 10, marginTop: 60, borderRadius: 10, }}>
 
 
-                <h1 style={{ textAlign: 'center', color: 'rebeccapurple', fontSize: 40 }}>10TH MATHS EM</h1>
+                <h1 style={{ textAlign: 'center', color: 'rebeccapurple', fontSize: 40 }}>9TH MATHS EM</h1>
             </div>
 
-            <div style={{ margin: 55, padding: 10, marginTop: 60, borderRadius: 10, }}>
-
-
-                <h1 style={{ textAlign: 'center', color: 'rebeccapurple', fontSize: 40 }}>10TH MATHS EM</h1>
-            </div>
+          
 
 
             <div style={{ margin: 15, padding: 10, }}>
