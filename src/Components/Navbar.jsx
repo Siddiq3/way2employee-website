@@ -18,19 +18,23 @@ export const Navbar = () => {
             </div>
             <ul className={menuOpen ? "open" : ""}>
                 <li>
-                    <NavLink to="/about">10thclass</NavLink>
+                    <NavLink to="/">OffCampus Jobs</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/services">9thclass</NavLink>
+                    <NavLink to="/internships">Internship</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/contact">inter1st year</NavLink>
+                    <NavLink to="/walkindrives">Walk in drives</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/contact">inter2nd year</NavLink>
+                    <NavLink to="/govtjobs">GovtJobs</NavLink>
                 </li>
+
+
+
+
+
             </ul>
         </nav>
     );
 };
-

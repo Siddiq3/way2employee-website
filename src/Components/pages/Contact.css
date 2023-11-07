@@ -1,0 +1,103 @@
+/* Contact.css */
+.App {
+    background-color: #fefefe;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.job-title {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.company-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+div h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+li {
+    font-size: 16px;
+}
+
+div strong {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+a {
+    color: #0077B5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 80%;
+    /* To make the image responsive within the card */
+    height: auto;
+    /* Maintain the image's aspect ratio */
+}
+
+/* LoadingSpinner.css */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
