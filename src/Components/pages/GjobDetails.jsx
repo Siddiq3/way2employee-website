@@ -48,7 +48,7 @@ export const GjobDetails = () => {
 
 
         <div>
-            <h1>Axios Tutorial</h1>
+           
 
 
 
@@ -100,7 +100,11 @@ export const GjobDetails = () => {
 
                     <h5>{job.rolesandresH}:</h5>
 
-
+<ul>
+                       {job.rolesandres.map((adres1, index1) => (
+                           <li key={index1}>{adres1}</li>
+                       ))}
+                   </ul>
                     <p><strong>apply link:   <a href={job.apply} target="_blank"
 
                     > Click here</a></strong></p>
