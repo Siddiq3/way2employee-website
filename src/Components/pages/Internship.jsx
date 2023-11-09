@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './App.css';
@@ -92,5 +92,80 @@ export const Internship = () => {
                })}
            </div>
        </>
-   ) */
+   ) 
 };
+*/
+
+
+
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import './App.css';
+
+export const Internship = () => {
+    const [myData, setMyData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(6); // Set the number of items per page
+    const [isError, setIsError] = useState("");
+
+    const getMyPostData = async () => {
+        try {
+            const res = await axios.get("https://api.way2employee.com/internships/");
+            const formattedData = res.data.map(job => ({
+                ...job,
+                date: formatISODate(job.date)
+            }));
+            setMyData(formattedData);
+
+        } catch (error) {
+            setIsError(error.message);
+        }
+    };
+
+    useEffect(() => {
+        getMyPostData();
+    }, []);
+
+    function formatISODate(isoDateString) {
+        // Function remains unchanged
+    }
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = myData.slice(indexOfFirstItem, indexOfLastItem);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    return (
+        <>
+            {isError !== "" && <h2>{isError}</h2>}
+
+            <div className="grid">
+                {currentItems.map((job) => (
+                    <div key={job.jobtittle} className="card">
+                        <img src={job.companylogo} alt="API Image" />
+                        <h2>{job.jobtitle}</h2>
+                        <h4>{job.date}</h4>
+                        <Link to={`/internships/${job.jobname}`}>
+                            <button>Apply now</button>
+                        </Link>
+                    </div>
+                ))}
+            </div>
+
+            {/* Pagination buttons */}
+
+            <div className="pagination">
+                {Array.from({ length: Math.ceil(myData.length / itemsPerPage) }, (_, index) => (
+                    <button key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                        {index + 1}
+                    </button>
+                ))}
+            </div>
+        </>
+    );
+};
+

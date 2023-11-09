@@ -103,6 +103,8 @@ import './App.css';
 
 export const Job = () => {
     const [myData, setMyData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(6); // Set the number of items per page
     const [loading, setLoading] = useState(true);
 
     const getMyPostData = async () => {
@@ -151,17 +153,27 @@ export const Job = () => {
                     return (
                         <div key={job.jobtittle} className="card">
                             <img src={job.companylogo} alt="API Image" />
-                            <h2>{job.jobtitle}</h2>
+                            <h3>{job.jobtitle}</h3>
 
                             <h4 >{job.date}</h4>
 
 
-                            <Link to={`/jobs/${job._id}`}><button>
+                            <Link to={`/jobs/${job.jobname}`}><button>
                                 apply now
                             </button></Link>
                         </div>
                     );
                 })}
+            </div>
+
+            {/* Pagination buttons */}
+
+            <div className="pagination">
+                {Array.from({ length: Math.ceil(myData.length / itemsPerPage) }, (_, index) => (
+                    <button key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                        {index + 1}
+                    </button>
+                ))}
             </div>
         </>
     );

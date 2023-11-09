@@ -1,199 +1,124 @@
- /*.active {
+/* Common styles for both large and small screens */
+.active {
     background-color: #1d4ed8;
 }
 
-nav {
+
+
+footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0f172a;
     color: white;
-    position: sticky;
-    top: 0;
-   
-
+    padding: 10px 20px;
+    /* Added padding for better spacing */
 }
 
-nav .title {
-    font-size: 1.2rem;
-    margin: 1.5rem;
+footer p {
+    font-size: 0.98em;
     font-weight: bold;
     text-decoration: none;
-    color: white;
 }
 
-nav ul {
+footer ul {
     display: flex;
-}
-
-nav ul li {
     list-style: none;
+    /* Combined list-style for ul */
 }
 
-nav ul li a {
-    display: block;
+footer ul li {
+    margin: 0 0.5rem;
+    /* Added margin to separate list items */
+}
+
+footer ul li a {
     text-decoration: none;
     color: white;
     padding: 0.5rem;
-    margin: 0 0.5rem;
     border-radius: 0.5rem;
 }
 
-nav ul li a:not(.active):hover {
+footer ul li a:not(.active):hover {
     background-color: #172554;
 }
 
-nav .menu {
-    display: none;
-    position: absolute;
-    top: 0.75rem;
-    right: 0.5rem;
-    flex-direction: column;
+.social-icons {
+    display: flex;
     justify-content: space-between;
-    width: 2.25rem;
-    height: 2rem;
+    padding: 0.5rem;
+    margin: 0 2.5rem;
 }
 
-nav .menu span {
-    height: 0.4rem;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 0.2rem;
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    margin: 0 10px;
+    /* Add spacing between icons */
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
 }
-*/
 
+.whatsapp {
+    background-color: #25d366;
+}
 
+.telegram {
+    background-color: #0088cc;
+}
 
+.instagram {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584);
+}
 
+.youtube {
+    background-color: #ff0000;
+}
 
- .active {
-     background-color: #1d4ed8;
- }
+/* Media query for screens with a maximum width of 600px */
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        /* Adjusted padding for smaller screens */
+    }
 
- footer {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background-color: #0f172a;
-     color: white;
-     position: sticky;
-     top: 0;
- }
+    footer ul {
+        flex-direction: column;
+        width: 100%;
+        margin: 1rem 0;
+    }
 
- footer .head {
-     font-size: 0.98em;
-     margin: 1rem;
-     font-weight: bold;
-     text-decoration: none;
-     color: white;
- }
+    footer ul.sk {
+        display: flex;
+    }
 
- footer ul {
-     display: flex;
- }
+    footer ul li {
+        font-size: 0.70rem;
+        margin: 0.5rem 0;
+    }
 
- footer ul li {
-     list-style: none;
- }
+    .social-icons {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
 
- footer ul li a {
+    .social-icon {
+        margin: 15px 15px;
+        /* Adjust spacing for smaller screens */
+    }
 
-     text-decoration: none;
-     color: white;
-     padding: 0.5rem;
-     margin: 0 0.5rem;
-     border-radius: 0.5rem;
- }
-
- footer ul li a:not(.active):hover {
-     background-color: #172554;
- }
-
-
-
- .social-icons {
-     display: flex;
-     justify-content: space-between;
-
-     padding: 0.5rem;
-     margin: 0 2.5rem;
-
- }
-
- .social-icon {
-     text-align: center;
-     color: white;
-     background-color: #333;
-     padding: 10px;
-     border-radius: 50%;
-     text-decoration: none;
-     font-size: 20px;
- }
-
- .whatsapp {
-     background-color: #25d366;
- }
-
- .telegram {
-     background-color: #0088cc;
- }
-
- .instagram {
-     background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584);
- }
-
- .youtube {
-     background-color: #ff0000;
- }
-
- @media (max-width: 600px) {
-
-
-     footer {
-         flex-direction: column;
-         align-items: flex-start;
-     }
-
-     footer ul {
-         display: flex;
-         flex-direction: row;
-         width: 100%;
-         margin-bottom: 0.4rem;
-         align-items: flex-start;
-         margin-top: 1rem;
-     }
-
-     footer ul.sk {
-         display: flex;
-     }
-
-     footer ul li {
-
-         flex-direction: row;
-         font-size: 0.70rem;
-         text-decoration: none;
-         white-space: nowrap;
-
-
-
-     }
-
-     footer ul li {
-         width: 100%;
-         text-align: center;
-         flex-direction: row;
-     }
-
-     footer ul li a {
-         margin: 0.5rem 0.5rem;
-     }
-
-     .social-icon {
-
-         display: flex;
-         margin-left: 3.5rem;
-         align-content: center;
-         margin-top: 1rem;
-
-     }
- }
+    .social-icon:not(:last-child) {
+        margin-bottom: 10px;
+        /* Add space below all icons except the last one */
+    }
+}

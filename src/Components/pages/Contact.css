@@ -74,6 +74,37 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Style for the specific link */
+.custom-link-style {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #006aff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 1s ease;
+    animation: pulse 0.5s infinite alternate;
+    /* Add animation */
+}
+
+.custom-link-style:hover {
+    background-color: #00b37a;
+    text-decoration: none;
+}
+
+
+/* Add animation keyframes */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+
 img {
     width: 80%;
     /* To make the image responsive within the card */

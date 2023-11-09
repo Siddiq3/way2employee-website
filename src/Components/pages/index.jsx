@@ -10,3 +10,8 @@ export * from "./Gjob";
 export * from "./GjobDetails";
 export * from "./jobDetails";
 
+export * from "./Aboutus";
+export * from "./Disclimer"
+export * from "./Contact"
+export * from "./Privacy"
+

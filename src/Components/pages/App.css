@@ -32,24 +32,26 @@
      /* Add other styles as needed */
  }
 
+
  .card {
-     padding: 20px;
+     padding: 15px;
      margin: 15px;
      display: flex;
      flex-direction: column;
      /* Display elements vertically */
 
-     /* Center elements horizontally */
+     /* Center elements horizontally  */
      text-align: center;
      background-color: #f0f0f0;
+
  }
 
  .card img {
-     width: 100%;
+     width: 90%;
      /* To make the image responsive within the card */
      height: auto;
      /* Maintain the image's aspect ratio */
-     margin: 10px;
+     margin: 5px;
      /* Add some vertical spacing between the image and other elements */
  }
 
@@ -61,7 +63,7 @@
      border-radius: 5%;
      font-weight: bold;
      font-size: 18px;
-     margin: 10px;
+     margin: 5px;
      cursor: pointer;
      align-items: start;
 
@@ -80,6 +82,11 @@
      grid-template-columns: 1fr;
 
  }
+
+
+
+
+
 
  .date-section {
      display: flex;
@@ -104,6 +111,29 @@
      margin: 0 auto;
  }
 
+ .pagination {
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+ }
+
+ .pagination button {
+     background-color: #4caf50;
+     color: white;
+     border: 1px solid #4caf50;
+     padding: 8px 16px;
+     margin: 0 4px;
+     cursor: pointer;
+ }
+
+ .pagination button:hover {
+     background-color: #45a049;
+ }
+
+ .pagination button.active {
+     background-color: #45a049;
+ }
+
  @keyframes spin {
      0% {
          transform: rotate(0deg);
@@ -123,18 +153,20 @@
 
 
 
+
+
  }
 
 
-
-
- /* Media query for screens 768px and below (mobile) 
+ /* Decrease the size of the grid for screens 768px and below (mobile) */
  @media (max-width: 768px) {
      .grid {
-         flex-direction: column;
+         grid-template-columns: 1fr;
+         /* You can use 1 column for smaller screens */
      }
 
      .card {
          width: 100%;
+         /* Allow the cards to take up the full width of the screen */
      }
  }

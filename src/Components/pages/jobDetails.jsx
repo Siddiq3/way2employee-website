@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Contact.css";
 export const JobDetails = () => {
-    const { _id } = useParams();
+    const { jobname } = useParams();
 
     const [job, setJob] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Fetch job details based on the job ID
-        axios.get(`https://api.way2employee.com/jobs/${_id}`) // Replace with your API endpoint
+        axios.get(`https://api.way2employee.com/jobs/${jobname}`) // Replace with your API endpoint
             .then((response) => {
                 setJob(response.data);
 
@@ -19,7 +19,7 @@ export const JobDetails = () => {
                 console.error('Error fetching job details:', error);
 
             });
-    }, [_id]);
+    }, [jobname]);
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
@@ -65,18 +65,9 @@ export const JobDetails = () => {
                         alignItems: 'center',
 
                     }}>
-                        <a href="https://telegram.me/fresheroffcampu" target="_blank"
-                            style={{
-                                fontSize: '18px',
-                                width: '325px',
-                                backgroundColor: "blue",
-                                boxShadow: "1px 1px 1px #27A5E7",
-                                color: "#FFFFFF",
-                                borderRadius: "50px"
-
-
-                            }}
-                        > Join Our Offical  Whatsapp Group</a>
+                        <div className="text-center">
+                            <a class="custom-link-style" href="https://whatsapp.com/channel/0029Va9HZxt9hXFFhW4aOM2d" target="_blank">Join Our Official Whatsapp Group</a>
+                        </div>
                     </div>
                     <p><strong>{job.jobname}:</strong> {job.jobdetails}</p>
 
@@ -119,6 +110,7 @@ export const JobDetails = () => {
             </div >
 
         </div>
+
     );
 }
 /* <h5>{job.educandskillH}:</h5>
