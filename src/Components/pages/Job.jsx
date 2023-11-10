@@ -100,11 +100,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import './App.css';
 
-
 export const Job = () => {
     const [myData, setMyData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(6); // Set the number of items per page
+    const [itemsPerPage, setItemsPerPage] = useState(6);
     const [loading, setLoading] = useState(true);
 
     const getMyPostData = async () => {
@@ -112,11 +111,13 @@ export const Job = () => {
             const res = await axios.get("https://api.way2employee.com/jobs");
             const formattedData = res.data.map(job => ({
                 ...job,
-                date: formatISODate(job.date) // Format the date
+                date: formatISODate(job.date)
             }));
             setMyData(formattedData);
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching job details:', error);
+            setLoading(false);
         }
     };
 
@@ -124,50 +125,45 @@ export const Job = () => {
         getMyPostData();
     }, []);
 
-    // Function to format ISO date to human-readable format
-    function formatISODate(isoDateString) {
+    const formatISODate = (isoDateString) => {
         const date = new Date(isoDateString);
         const options = {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-
         };
         return date.toLocaleDateString('en-US', options);
-    }
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 3000); // Simulate a 3-second loading delay
-    }, []);
+    };
 
-    if (!myData) {
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    if (loading) {
         return <div className="loading-spinner"></div>;
     }
 
+    // Calculate the indexes for the items to be displayed on the current page
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = myData.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
         <>
-
             <div className="grid">
-                {myData.map((job) => {
-                    return (
-                        <div key={job.jobtittle} className="card">
-                            <img src={job.companylogo} alt="API Image" />
-                            <h3>{job.jobtitle}</h3>
-
-                            <h4 >{job.date}</h4>
-
-
-                            <Link to={`/jobs/${job.jobname}`}><button>
-                                apply now
-                            </button></Link>
-                        </div>
-                    );
-                })}
+                {currentItems.map((job) => (
+                    <div key={job.jobtitle} className="card">
+                        <img src={job.companylogo} alt="API Image" />
+                        <h3>{job.jobtitle}</h3>
+                        <h4>{job.date}</h4>
+                        <Link to={`/jobs/${job.jobname}`}>
+                            <button>apply now</button>
+                        </Link>
+                    </div>
+                ))}
             </div>
 
             {/* Pagination buttons */}
-
             <div className="pagination">
                 {Array.from({ length: Math.ceil(myData.length / itemsPerPage) }, (_, index) => (
                     <button key={index + 1} onClick={() => handlePageChange(index + 1)}>
