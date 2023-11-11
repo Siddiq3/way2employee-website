@@ -128,17 +128,23 @@ export const Internship = () => {
     }, []);
 
     function formatISODate(isoDateString) {
-        // Function remains unchanged
+        const date = new Date(isoDateString);
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        return date.toLocaleDateString('en-US', options);
     }
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = myData.slice(indexOfFirstItem, indexOfLastItem);
 
+
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
-
     return (
         <>
             {isError !== "" && <h2>{isError}</h2>}
@@ -160,7 +166,11 @@ export const Internship = () => {
 
             <div className="pagination">
                 {Array.from({ length: Math.ceil(myData.length / itemsPerPage) }, (_, index) => (
-                    <button key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                    <button
+                        key={index + 1}
+                        onClick={() => handlePageChange(index + 1)}
+                        className={currentPage === index + 1 ? "active" : ""}
+                    >
                         {index + 1}
                     </button>
                 ))}

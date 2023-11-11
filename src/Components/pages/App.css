@@ -118,21 +118,25 @@
  }
 
  .pagination button {
-     background-color: #4caf50;
-     color: white;
-     border: 1px solid #4caf50;
-     padding: 8px 16px;
-     margin: 0 4px;
+     background-color: white;
+     color: black;
+     border: 1px solid #ccc;
+     padding: 8px 12px;
+     margin: 0 5px;
      cursor: pointer;
  }
 
  .pagination button:hover {
-     background-color: #45a049;
+     background-color: #f1f1f1;
  }
 
  .pagination button.active {
-     background-color: #45a049;
+     background-color: #4caf50;
+     /* Set the color for the current page */
+     color: white;
+     border: 1px solid #4caf50;
  }
+
 
  @keyframes spin {
      0% {
